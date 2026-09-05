@@ -55,8 +55,8 @@ cat > /sbin/jd_boot_guard.sh << 'GUARDSCRIPT'
 
 logger -t jd_boot_guard "Starting boot guard..."
 
-# === 1. 禁用 PCDN/积分服务（procd 管理的必须 stop+disable，不能只 kill）===
-for svc in jdcbox jdcloudbi jdc_evtreport; do
+# === 1. 禁用 PCDN/积分服务（procd 管理的必须 stop+disable，不能只 kill）===（jdcloudbi）
+for svc in jdcbox jdc_evtreport; do
     if [ -f /etc/init.d/$svc ]; then
         /etc/init.d/$svc stop 2>/dev/null
         /etc/init.d/$svc disable 2>/dev/null

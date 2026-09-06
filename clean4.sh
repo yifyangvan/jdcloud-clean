@@ -3,8 +3,8 @@
 # 京东云 AX1800 Pro / AX6600 全量清理工具（合并版）
 #
 # 结合 jd_full_fix.sh 的彻底清理 + boot_guard 防复活闭环
-# 增加了备份/恢复机制
-#
+# 备份/恢复机制
+# 保留cloudbi服务，避免led屏幕常亮
 # 原则：
 #   - 所有删除和修改的文件均备份到 BACKUP_DIR，可完整恢复
 #   - 首次运行才备份，后续不覆盖原始备份
@@ -198,7 +198,7 @@ disable_pcdn()
         fi
     done
 
-    remove_rcd_links jdcbox jdcloudbi jdc_evtreport
+    remove_rcd_links jdcbox jdc_evtreport
     echo "  PCDN / 积分服务已禁用"
 }
 
@@ -337,7 +337,7 @@ done
 chmod -x /opt/jdc_node/jdc_node.sh 2>/dev/null
 chmod -x /opt/jdc_node/jdc_node 2>/dev/null
 chmod -x /opt/jdc_snake/snake.sh 2>/dev/null
-rm -f /etc/rc.d/S*jdcbox /etc/rc.d/S*jdcloudbi /etc/rc.d/S*jdc_evtreport 2>/dev/null
+rm -f /etc/rc.d/S*jdcbox /etc/rc.d/S*jdc_evtreport 2>/dev/null
 
 # === 2. 禁用 webdav 和 dlspeed（防 firewall 规则被冲）===
 for svc in webdav dlspeed; do

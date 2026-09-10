@@ -13,6 +13,7 @@
 ## 前置条件
 
 - 路由器已开启 Telnet 或 SSH，可登录获取 root 权限
+- 没开telnet的，可以用目录里面telnet来开启。在web管理页面登录状态下，按F12进入控制台，复制telnet里面的命令运行，即可开启
 - 路由器架构为 arm_cortex-a53，系统为 musl libc（多数原厂 OpenWrt 固件满足）
 - 路由器可访问互联网（用于下载 Dropbear 安装包）
 

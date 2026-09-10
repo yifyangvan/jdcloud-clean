@@ -21,7 +21,7 @@ telnet 192.168.1.1
 ### 2. 下载并固化脚本
 
 ```sh
-curl -L -o /usr/bin/jd 'https://raw.githubusercontent.com/yifyangvan/jdcloud-clean/refs/heads/main/clean4.sh'
+curl -L -o /usr/bin/jd 'https://raw.githubusercontent.com/yifyangvan/jdcloud-clean/refs/heads/main/jd.sh'
 chmod +x /usr/bin/jd
 ```
 
@@ -40,33 +40,13 @@ jd
 ## 菜单功能
 
 ```
-1. 推荐清理
-   备份 + 禁用 PCDN + 清理升级 + DNS 封锁
-   + 清理 crontab + 安装 Boot Guard
-   （保留 APP / Web / Mesh / LED 基础功能）
-
-2. 仅禁用 PCDN / 积分及后台服务
-
-3. DNS 封锁管理
-   开启 / 关闭 4 个京东云域名的 DNS 封锁
-
-4. 自动升级管理
-   彻底关闭 / 从备份恢复自动升级
-
-5. Boot Guard 管理
-   安装 / 卸载 / 立即执行一次开机兜底脚本
-
-6. 查看当前状态
-   进程、服务、DNS、Boot Guard、crontab、备份状态
-
-7. 从备份恢复全部
-   一键恢复所有修改到原始状态
-
-8. 极限模式：禁用全部京东服务
-   ⚠️  APP / Web / Mesh / LED 可能全部失效
-
-9. 退出
-```
+1. 推荐清1. 推荐清理
+2. 自定义工具        （PCDN / DNS / 升级 / Boot Guard）
+3. SSH 管理         （安装 / 卸载 / 重启）
+4. 查看当前状态
+5. 从备份恢复全部
+6. 极限模式
+7. 退出
 
 ## 推荐使用流程
 
@@ -141,7 +121,7 @@ Boot Guard 是本工具的核心防复活机制：
 
 ### 方法一：通过菜单恢复（推荐）
 
-运行 `jd`，选 **7（从备份恢复全部）**，输入 `RESTORE` 确认。
+运行 `jd`，选 **5（从备份恢复全部）**，输入 `RESTORE` 确认。
 
 这会：
 - 卸载 Boot Guard

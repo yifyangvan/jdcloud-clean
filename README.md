@@ -1,4 +1,4 @@
-# 路由器管理工具
+# AX1800&AX6600路由器管理工具
 
 适用于 OpenWrt 系路由器（arm_cortex-a53 / musl libc），一键禁用 PCDN/积分服务、关闭自动升级、DNS 封锁、安装开机兜底防复活机制、安装 Dropbear SSH。所有修改均有备份，可完整恢复。
 

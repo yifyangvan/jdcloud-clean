@@ -3,8 +3,8 @@
 适用于 OpenWrt 系路由器（arm_cortex-a53 / musl libc），一键禁用 PCDN/积分服务、关闭自动升级、DNS 封锁、安装开机兜底防复活机制、安装 Dropbear SSH。所有修改均有备份，可完整恢复。
 
 ## 功能特性
-<img width="376" height="405" alt="jd" src="[https://github.com/yifyangvan/jdcloud-clean/blob/main/status.jpg]" />
-<img width="379" height="757" alt="status" src="[https://github.com/yifyangvan/jdcloud-clean/blob/main/status.jpg]" />
+<img width="376" height="405" alt="jd" src="[https://raw.githubusercontent.com/yifyangvan/jdcloud-clean/refs/heads/main/jd.jpg]" />
+<img width="379" height="757" alt="status" src="[https://raw.githubusercontent.com/yifyangvan/jdcloud-clean/refs/heads/main/status.jpg]" />
 
 
 - **推荐清理**：一键禁用 PCDN/积分服务、关闭自动升级、DNS 封锁、清理 crontab、安装 Boot Guard 防复活
